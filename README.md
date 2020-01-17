@@ -17,6 +17,13 @@ We will focus on authenticating to ADLS Gen 2 storage from Azure databricks clus
 ## Requirements
 
 [Create and initialize ADLS gen 2 file system, enabling the hierarchical namespaces. ](https://docs.microsoft.com/en-us/azure/databricks/data/data-sources/azure/azure-datalake-gen2#create-adls-account)
+
+> spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+
+> dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+  
+> spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
+
 > Important
 
 > 1. When the hierarchical namespace is enabled for an Azure Data Lake Storage Gen2 account, you do not need to create any Blob containers through the Azure portal.
